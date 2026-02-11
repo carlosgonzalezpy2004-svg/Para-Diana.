@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Para Diana ❤️</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Montserrat:wght@300;400;600&display=swap');
+
+        body {
+            margin: 0;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: #fff0f3;
+            font-family: 'Montserrat', sans-serif;
+            overflow-x: hidden;
+        }
+
+        .container {
+            text-align: center;
+            z-index: 10;
+            padding: 20px;
+            max-width: 600px;
+        }
+
+        h1 {
+            font-family: 'Dancing Script', cursive;
+            color: #ff4d6d;
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.05);
+        }
+
+        .magic-button {
+            background: #ff4d6d;
+            color: white;
+            border: none;
+            padding: 18px 35px;
+            font-size: 1.3rem;
+            border-radius: 50px;
+            cursor: pointer;
+            box-shadow: 0 10px 20px rgba(255, 77, 109, 0.3);
+            transition: all 0.3s ease;
+            font-weight: 600;
+        }
+
+        .magic-button:hover {
+            transform: scale(1.1);
+            background: #ff758f;
+            box-shadow: 0 15px 25px rgba(255, 77, 109, 0.4);
+        }
+
+        #surprise-content {
+            display: none;
+            margin-top: 20px;
+            animation: popIn 1s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        .photo-frame {
+            width: 300px;
+            height: 300px;
+            border: 10px solid white;
+            border-radius: 20px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.15);
+            object-fit: cover;
+            margin-bottom: 25px;
+        }
+
+        .love-letter {
+            background: rgba(255, 255, 255, 0.7);
+            padding: 25px;
+            border-radius: 20px;
+            color: #444;
+            line-height: 1.8;
+            font-size: 1.1rem;
+            border: 1px dashed #ff4d6d;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+
+        .love-letter b {
+            color: #ff4d6d;
+        }
+
+        @keyframes popIn {
+            0% { transform: scale(0.5); opacity: 0; }
+            100% { transform: scale(1); opacity: 1; }
+        }
+
+        .heart {
+            position: absolute;
+            pointer-events: none;
+            z-index: 5;
+            animation: moveUp 3s linear forwards;
+        }
+
+        @keyframes moveUp {
+            0% { transform: translateY(0) scale(0); opacity: 1; }
+            100% { transform: translateY(-110vh) scale(1.5); opacity: 0; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1 id="main-title">Para Diana</h1>
+        <button class="magic-button" id="btn-surprise">Haz clic aquí, amor ✨</button>
+        
+        <div id="surprise-content">
+            <img src="C:\Users\Carlo\Downloads\sorpresa.html\nosotros.jpg.jpeg" alt="Nosotros" class="photo-frame">
+            
+            <div class="love-letter">
+                <p>
+                    <b>Diana,</b><br>
+                    No sé cuánto durará esto, pero de lo que estoy seguro es de que <b>te amo</b> con todo mi corazón. 
+                    He pasado a tu lado muchísimas cosas hermosas, momentos que guardo como tesoros y que siempre te voy a agradecer. 
+                    <br><br>
+                    Gracias por ser mi paz en días de tormenta, por cada risa compartida y por enseñarme lo bonito que es caminar de la mano con alguien como tú. 
+                    Eres la persona que ilumina mis días y solo quiero seguir creando más recuerdos increíbles a tu lado.
+                    <br><br>
+                    <b>Ojalá no haya un fin, pero igual trataré de aprovecharte al máximo. ¡Te amo! ❤️"! ❤️</b>
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const btn = document.getElementById('btn-surprise');
+        const content = document.getElementById('surprise-content');
+        const title = document.getElementById('main-title');
+
+        btn.addEventListener('click', () => {
+            content.style.display = 'block';
+            btn.style.display = 'none';
+            title.innerHTML = "¡Te amo, Diana! ❤️";
+
+            // Explosión inicial de corazones
+            for (let i = 0; i < 100; i++) {
+                setTimeout(createHeart, i * 15);
+            }
+            
+            // Corazones constantes
+            setInterval(createHeart, 200);
+        });
+
+        function createHeart() {
+            const heart = document.createElement('div');
+            heart.classList.add('heart');
+            const emojis = ['❤️', '💖', '💘', '💕', '✨', '🌸'];
+            heart.innerText = emojis[Math.floor(Math.random() * emojis.length)];
+            
+            heart.style.left = Math.random() * 100 + 'vw';
+            heart.style.top = '100vh';
+            heart.style.fontSize = Math.random() * 20 + 20 + 'px';
+            
+            const duration = Math.random() * 2 + 2.5;
+            heart.style.animationDuration = duration + 's';
+            
+            document.body.appendChild(heart);
+            setTimeout(() => { heart.remove(); }, duration * 1000);
+        }
+    </script>
+</body>
+</html>
