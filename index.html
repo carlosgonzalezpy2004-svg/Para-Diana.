@@ -3,101 +3,86 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Para Diana ❤️</title>
+    <title>Para Diana</title>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Montserrat:wght@300;400;600&display=swap');
-
         body {
-            margin: 0;
-            min-height: 100vh;
+            font-family: 'Arial', sans-serif;
+            background-color: #fff0f5;
             display: flex;
             justify-content: center;
             align-items: center;
-            background: #fff0f3;
-            font-family: 'Montserrat', sans-serif;
-            overflow-x: hidden;
+            height: 100vh;
+            margin: 0;
+            overflow: hidden;
+            text-align: center;
         }
 
         .container {
-            text-align: center;
+            background-color: white;
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            max-width: 400px;
             z-index: 10;
-            padding: 20px;
-            max-width: 600px;
         }
 
-        h1 {
-            font-family: 'Dancing Script', cursive;
-            color: #ff4d6d;
-            font-size: 3.5rem;
-            margin-bottom: 20px;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.05);
-        }
+        h1 { color: #d63384; }
 
         .magic-button {
-            background: #ff4d6d;
+            background-color: #ff4d6d;
             color: white;
             border: none;
-            padding: 18px 35px;
-            font-size: 1.3rem;
+            padding: 15px 30px;
+            font-size: 18px;
             border-radius: 50px;
             cursor: pointer;
-            box-shadow: 0 10px 20px rgba(255, 77, 109, 0.3);
-            transition: all 0.3s ease;
-            font-weight: 600;
+            transition: transform 0.3s, background-color 0.3s;
+            box-shadow: 0 5px 15px rgba(255, 77, 109, 0.4);
         }
 
         .magic-button:hover {
             transform: scale(1.1);
-            background: #ff758f;
-            box-shadow: 0 15px 25px rgba(255, 77, 109, 0.4);
+            background-color: #ff758f;
         }
 
         #surprise-content {
             display: none;
             margin-top: 20px;
-            animation: popIn 1s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            animation: fadeIn 1.5s ease-in-out;
         }
 
         .photo-frame {
-            width: 300px;
-            height: 300px;
-            border: 10px solid white;
-            border-radius: 20px;
-            box-shadow: 0 15px 35px rgba(0,0,0,0.15);
-            object-fit: cover;
-            margin-bottom: 25px;
+            width: 100%;
+            border-radius: 15px;
+            border: 5px solid #ffb3c1;
+            margin-bottom: 15px;
         }
 
         .love-letter {
-            background: rgba(255, 255, 255, 0.7);
-            padding: 25px;
-            border-radius: 20px;
-            color: #444;
-            line-height: 1.8;
-            font-size: 1.1rem;
-            border: 1px dashed #ff4d6d;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            color: #590d22;
+            line-height: 1.6;
+            font-style: italic;
         }
 
-        .love-letter b {
-            color: #ff4d6d;
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
         }
 
-        @keyframes popIn {
-            0% { transform: scale(0.5); opacity: 0; }
-            100% { transform: scale(1); opacity: 1; }
-        }
-
+        /* Estilos de los Corazones Animados */
         .heart {
             position: absolute;
+            color: #ff4d6d;
+            font-size: 20px;
+            user-select: none;
             pointer-events: none;
-            z-index: 5;
-            animation: moveUp 3s linear forwards;
+            z-index: 1;
+            animation: moveUp 4s linear forwards;
         }
 
         @keyframes moveUp {
-            0% { transform: translateY(0) scale(0); opacity: 1; }
-            100% { transform: translateY(-110vh) scale(1.5); opacity: 0; }
+            0% { transform: translateY(100vh) scale(0.5); opacity: 1; }
+            100% { transform: translateY(-10vh) scale(1.5); opacity: 0; }
         }
     </style>
 </head>
@@ -106,59 +91,43 @@
     <div class="container">
         <h1 id="main-title">Para Diana</h1>
         <button class="magic-button" id="btn-surprise">Haz clic aquí, amor ✨</button>
-        
+
         <div id="surprise-content">
             <img src="nosotros.jpg" alt="Nosotros" class="photo-frame">
-            
             <div class="love-letter">
                 <p>
-                    <b>Diana,</b><br>
+                    <b>Diana,</b><br><br>
                     No sé cuánto durará esto, pero de lo que estoy seguro es de que <b>te amo</b> con todo mi corazón. 
-                    He pasado a tu lado muchísimas cosas hermosas, momentos que guardo como tesoros y que siempre te voy a agradecer. 
-                    <br><br>
-                    Gracias por ser mi paz en días de tormenta, por cada risa compartida y por enseñarme lo bonito que es caminar de la mano con alguien como tú. 
-                    Eres la persona que ilumina mis días y solo quiero seguir creando más recuerdos increíbles a tu lado.
-                    <br><br>
-                    <b>Ojalá no haya un fin, pero igual trataré de aprovecharte al máximo. ¡Te amo! ❤️"! ❤️</b>
+                    Has traído luz a mis días y cada momento a tu lado es un tesoro que guardaré por siempre.
                 </p>
             </div>
         </div>
     </div>
 
     <script>
-        const btn = document.getElementById('btn-surprise');
-        const content = document.getElementById('surprise-content');
-        const title = document.getElementById('main-title');
+        document.getElementById('btn-surprise').addEventListener('click', function() {
+            // Mostrar el contenido
+            document.getElementById('surprise-content').style.display = 'block';
+            this.style.display = 'none';
+            document.getElementById('main-title').innerText = "Te amo infinitamente ❤️";
 
-        btn.addEventListener('click', () => {
-            content.style.display = 'block';
-            btn.style.display = 'none';
-            title.innerHTML = "¡Te amo, Diana! ❤️";
-
-            // Explosión inicial de corazones
-            for (let i = 0; i < 100; i++) {
-                setTimeout(createHeart, i * 15);
+            // Crear lluvia de corazones
+            for (let i = 0; i < 50; i++) {
+                setTimeout(createHeart, i * 100);
             }
-            
-            // Corazones constantes
-            setInterval(createHeart, 200);
         });
 
         function createHeart() {
             const heart = document.createElement('div');
             heart.classList.add('heart');
-            const emojis = ['❤️', '💖', '💘', '💕', '✨', '🌸'];
-            heart.innerText = emojis[Math.floor(Math.random() * emojis.length)];
-            
+            heart.innerHTML = '❤️';
             heart.style.left = Math.random() * 100 + 'vw';
-            heart.style.top = '100vh';
-            heart.style.fontSize = Math.random() * 20 + 20 + 'px';
-            
-            const duration = Math.random() * 2 + 2.5;
-            heart.style.animationDuration = duration + 's';
-            
+            heart.style.animationDuration = (Math.random() * 3 + 2) + 's';
             document.body.appendChild(heart);
-            setTimeout(() => { heart.remove(); }, duration * 1000);
+
+            setTimeout(() => {
+                heart.remove();
+            }, 5000);
         }
     </script>
 </body>
